@@ -1,10 +1,11 @@
 import React from "react"
+import Layout from "../components/layout"
 
 const IndexPage = () => {
   return (
-    <>
-      <div>Streaker</div>
-    </>
+    <Layout>
+      <h1>Streaker</h1>
+    </Layout>
   )
 }
 
