@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components"
+import variables from "./variables"
 
 const GlobalStyles = createGlobalStyle`
+  ${variables};
+
   html {
     box-sizing: border-box;
   }
@@ -13,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-weight: 400;
+    background-color: var(--white);
   }
 
   h1,

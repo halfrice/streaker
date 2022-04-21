@@ -1,10 +1,15 @@
 import React from "react"
+import styled from "styled-components"
 import { Layout } from "@components"
+
+const Title = styled.h1`
+  color: var(--blue);
+`
 
 const IndexPage = () => {
   return (
     <Layout>
-      <h1>Streaker</h1>
+      <Title>Streaker</Title>
     </Layout>
   )
 }
