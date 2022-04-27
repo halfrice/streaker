@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
 import styled from "styled-components"
+import { Message } from "@components"
 import { devices } from "@styles"
 
 const StyledHome = styled.div`
@@ -81,12 +82,18 @@ const CurrentMessage = styled.div`
 const Home = () => {
   const [textAreaValue, setTextAreaValue] = useState("")
   const [message, setMessage] = useState("")
+  const [isMessageRunning, setIsMessageRunning] = useState(false)
+
+  const toggleMessageRunning = () => {
+    setIsMessageRunning(!isMessageRunning)
+  }
 
   const handleTextAreaChange = (event) => {
     setTextAreaValue(event.target.value)
   }
 
   const handleSendMessage = () => {
+    toggleMessageRunning()
     setMessage(textAreaValue)
   }
 
@@ -108,6 +115,14 @@ const Home = () => {
       <CurrentMessage>
         Sent Message:<span>{message}</span>
       </CurrentMessage>
+
+      {isMessageRunning ? (
+        <Message
+          isMessageRunning={isMessageRunning}
+          message={message}
+          toggleMessageRunning={toggleMessageRunning}
+        ></Message>
+      ) : null}
     </StyledHome>
   )
 }
